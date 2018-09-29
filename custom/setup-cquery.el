@@ -1,18 +1,32 @@
-(require-package 'cquery)
+(use-package cquery
+  :init
+  )
 
-(when (maybe-require-package 'company-lsp)
-  (after-load 'company-lsp
-    (setq company-quickhelp-delay 0)
-    ;; Language servers have better idea filtering and sorting,
-    ;; don't filter results on the client side.
-    (setq company-transformers nil)
-    (setq company-lsp-async t)
-    (setq company-lsp-cache-candidates nil)
+;; company
+(use-package company
+  :init
+  (global-company-mode 1)
+  )
 
-    ;;  (add-to-list 'company-backends 'company-lsp)
-    ;;  (add-hook 'c-mode-common-hook 'company-lsp)
-    (add-to-list 'company-backends 'company-lsp)
-    )
+(use-package company-c-headers
+  :init
+  (add-to-list 'company-backends 'company-c-headers))
+
+(use-package company-quickhelp)
+
+(use-package company-lsp
+  :defer t
+  :init
+  (setq company-quickhelp-delay 0)
+  ;; Language servers have better idea filtering and sorting,
+  ;; don't filter results on the client side.
+  (setq company-transformers nil)
+  (setq company-lsp-async t)
+  (setq company-lsp-cache-candidates nil)
+
+  ;;  (add-to-list 'company-backends 'company-lsp)
+  ;;  (add-hook 'c-mode-common-hook 'company-lsp)
+  (add-to-list 'company-backends 'company-lsp)
   )
 
 (setq cquery-executable "cquery")
@@ -38,16 +52,14 @@
       (lsp-cquery-enable)
     (user-error nil)))
 
-(require-package 'cquery)
-(require 'cquery)
-(add-hook 'c-mode-common-hook #'cquery//enable)
+(use-package cquery
+  :commands lsp-cquery-enable
+  :init (add-hook 'c-mode-common-hook #'cquery//enable))
 ;; Also see lsp-project-whitelist lsp-project-blacklist cquery-root-matchers
 
-(require-package 'helm-xref)
 (require 'helm-xref)
 (setq xref-show-xrefs-function 'helm-xref-show-xrefs)
 
-(require-package 'lsp-ui)
 (require 'lsp-ui)
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)
 (add-hook 'c-mode-common-hook 'flycheck-mode)

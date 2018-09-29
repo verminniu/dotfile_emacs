@@ -105,6 +105,13 @@ locate PACKAGE."
 (setq package-enable-at-startup nil)
 (package-initialize)
 
+;; add use-package
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+
 ;; package.el updates the saved version of package-selected-packages correctly only
 ;; after custom-file has been loaded, which is a bug. We work around this by adding
 ;; the required packages to package-selected-packages after startup is complete.
@@ -112,7 +119,7 @@ locate PACKAGE."
   (require-package 'seq)
   (add-hook 'after-init-hook
             (lambda () (package--save-selected-packages
-                   (seq-uniq (append sanityinc/required-packages package-selected-packages))))))
+                    (seq-uniq (append sanityinc/required-packages package-selected-packages))))))
 
 
 (require-package 'fullframe)

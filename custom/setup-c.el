@@ -1,9 +1,5 @@
-;; company-c-headers
-
+;; add cedet
 (require-package 'cc-mode)
-
-;;(require-package 'company-c-headers)
-
 
 ;; hs-minor-mode for folding source code
 (add-hook 'c-mode-common-hook 'hs-minor-mode)

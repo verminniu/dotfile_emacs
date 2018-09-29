@@ -29,7 +29,7 @@ Modify ~/.emacs.d/setup-my-conf.el to load your setup files
 
 ## Merge purcell's
 
-I just modify 
+I just modify
 ```
 init.el         - to load custom setup files
 setup-elpa.el   - to support other mirrors
