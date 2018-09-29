@@ -64,7 +64,7 @@
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)
 (add-hook 'c-mode-common-hook 'flycheck-mode)
 ;;(setq lsp-ui-sideline-enable nil)
-;;(setq lsp-ui-doc-enable nil)
+(setq lsp-ui-doc-enable nil)
 (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
 (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
 
@@ -79,12 +79,12 @@
 ;;(cquery-xref-find-custom "$cquery/callers")
 ;;(cquery-xref-find-custom "$cquery/derived")
 ;;(cquery-xref-find-custom "$cquery/vars")
-
-;;;; Alternatively, use lsp-ui-peek interface
+;;
+;;;;;; Alternatively, use lsp-ui-peek interface
 ;;(lsp-ui-peek-find-custom 'base "$cquery/base")
 ;;(lsp-ui-peek-find-custom 'callers "$cquery/callers")
 ;;(lsp-ui-peek-find-custom 'random "$cquery/random") ;; jump to a random declaration
-
+;;
 (setq lsp-ui-doc-include-signature nil)  ; don't include type signature in the child frame
 (setq lsp-ui-sideline-show-symbol nil)  ; don't show symbol on the right of info
 
