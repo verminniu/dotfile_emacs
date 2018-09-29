@@ -105,12 +105,20 @@ locate PACKAGE."
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-;; add use-package
+
+;; Setup `use-package'
 (unless (package-installed-p 'use-package)
+  (package-refresh-contents)
   (package-install 'use-package))
 
-(require 'use-package)
+;; Should set before loading `use-package'
 (setq use-package-always-ensure t)
+(setq use-package-always-defer t)
+(setq use-package-expand-minimally t)
+(setq use-package-enable-imenu-support t)
+
+(eval-when-compile
+  (require 'use-package))
 
 ;; package.el updates the saved version of package-selected-packages correctly only
 ;; after custom-file has been loaded, which is a bug. We work around this by adding
