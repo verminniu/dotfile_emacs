@@ -57,10 +57,10 @@
   :init (add-hook 'c-mode-common-hook #'cquery//enable))
 ;; Also see lsp-project-whitelist lsp-project-blacklist cquery-root-matchers
 
-(require 'helm-xref)
+(require-package 'helm-xref)
 (setq xref-show-xrefs-function 'helm-xref-show-xrefs)
 
-(require 'lsp-ui)
+(require-package 'lsp-ui)
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)
 (add-hook 'c-mode-common-hook 'flycheck-mode)
 ;;(setq lsp-ui-sideline-enable nil)
