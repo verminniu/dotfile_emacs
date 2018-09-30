@@ -2,10 +2,6 @@
 (require-package 'cc-mode)
 (semantic-mode nil)
 
-;; add .inl and .h to c++ mode
-(add-to-list 'auto-mode-alist '("\\.inl\\" . c++-mode))
-(add-to-list 'auto-mode-alist '("\\.h\\" . c++-mode))
-
 ;; hs-minor-mode for folding source code
 (add-hook 'c-mode-common-hook 'hs-minor-mode)
 
@@ -39,5 +35,9 @@
 ;; user When you want to define your own style
 (setq c-default-style "bsd")
 (setq c-basic-offset 4)
+
+;; add .inl and .h to c++ mode
+(add-to-list 'auto-mode-alist '("\\.inl\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 (provide 'setup-c)
