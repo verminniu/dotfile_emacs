@@ -1,3 +1,5 @@
+;;; package -- edit conf
+;;;
 (set-terminal-coding-system 'gb2312)
 (set-keyboard-coding-system 'gb2312)
 (set-language-environment "Chinese-GB")

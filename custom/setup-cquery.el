@@ -1,4 +1,5 @@
-;; add cquery
+;;;
+;;; package --  add cquery
 (require-package 'cquery)
 
 ;; company

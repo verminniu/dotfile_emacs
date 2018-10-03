@@ -1,3 +1,4 @@
+;;; setup-c -- add c/c++
 ;; add cedet
 (require-package 'cc-mode)
 (semantic-mode nil)
@@ -39,5 +40,10 @@
 ;; add .inl and .h to c++ mode
 (add-to-list 'auto-mode-alist '("\\.inl\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
+;; use gdb in many windows by default
+(setq gdb-many-windows t)
+;; non-nil display sourcce file containing the main routine at startup
+(setq gdb-show-main t)
 
 (provide 'setup-c)
